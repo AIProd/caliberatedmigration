@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wound Healing Analysis</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@stlite/browser@0.85.1/build/stlite.css"
+    />
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="module">
+      import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@0.85.1/build/stlite.js";
+
+      mount(
+        {
+          entrypoint: "app.py",
+          files: {
+            "app.py": { url: "./app.py" },
+            // Optional: Streamlit config if you add it
+            // ".streamlit/config.toml": { url: "./.streamlit/config.toml" },
+          },
+          requirements: [
+            "numpy",
+            "pandas",
+            "matplotlib",
+            "scikit-image",
+            "Pillow",
+            // "opencv-python", // only if you import cv2
+          ],
+          // Optional: basic Streamlit config knobs (viewer toolbar, etc.)
+          streamlitConfig: {
+            "client.toolbarMode": "viewer",
+          },
+        },
+        document.getElementById("root"),
+      );
+    </script>
+  </body>
+</html>
